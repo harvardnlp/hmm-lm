@@ -1,6 +1,12 @@
 # HMMs for Language Modeling
 
-Code for the paper [Scaling Hidden Markov Language Models](),
+Code for the paper
+
+[Scaling Hidden Markov Language Models]()<br/>
+Justin T. Chiu and Alexander Rush<br/>
+EMNLP 2020
+
+
 which trains HMMs with large state spaces for language modeling.
 
 ## Dependencies
