@@ -2,7 +2,7 @@
 
 Code for the paper
 
-[Scaling Hidden Markov Language Models]()<br/>
+[Scaling Hidden Markov Language Models](http://arxiv.org/abs/2011.04640)<br/>
 Justin T. Chiu and Alexander Rush<br/>
 EMNLP 2020
 
