@@ -362,7 +362,7 @@ class FactoredHmmLm(nn.Module):
     ):
         N = lengths.shape[0]
         fb = self.fb_train if self.training else self.fb_test
-        log_m, alphas = fb(log_potentials, mask=mask)
+        log_m, alphas = fb(log_potentials.clone(), mask=mask)
 
         idx = th.arange(N, device=self.device)
         alpha_T = alphas[lengths-1, idx]
@@ -402,7 +402,7 @@ class FactoredHmmLm(nn.Module):
             print(f"log pot: {timep.time() - startpot}")
         fb = self.fb_train if self.training else self.fb_test
         with th.no_grad():
-            log_m, alphas = fb(log_potentials.detach(), mask=mask)
+            log_m, alphas = fb(log_potentials.detach().clone(), mask=mask)
         idx = th.arange(N, device=self.device)
         alpha_T = alphas[lengths-1, idx]
         evidence = alpha_T.logsumexp(-1).sum()
