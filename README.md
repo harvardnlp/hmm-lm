@@ -33,7 +33,7 @@ export l_cluster=/path/to/brown-cluster/wcluster
 3. Preprocess the data by flattening the data.
 The flattened data is only used for producing the Brown Clusters.
 ```
-python scripts/preprocess_dataset.py
+python scripts/preprocess_datasets.py
 ```
 
 4. Run the Brown Cluster script to obtain clusters for PTB and WikiText-2.

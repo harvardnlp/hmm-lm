@@ -46,6 +46,9 @@ if __name__ == "__main__":
     ]
     outfiles = [f + ".flat" for f in infiles]
 
+    for infile, outfile in zip(infiles, outfiles):
+        remove_newline(infile, outfile, sep="<eos>")
+
     infiles = [
         ".data/penn-treebank/ptb.train.txt",
         ".data/penn-treebank/ptb.valid.txt",
