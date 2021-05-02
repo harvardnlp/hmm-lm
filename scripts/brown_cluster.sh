@@ -6,6 +6,7 @@ finput=.data/penn-treebank/ptb.train.txt.flat
 winput=.data/wikitext-103/wikitext-103/wiki.train.tokens
 w2input=.data/wikitext-2/wikitext-2/wiki.train.tokens
 w2finput=.data/wikitext-2/wikitext-2/wiki.train.tokens.flat
+w2fainput=.data/wikitext-2/wikitext-2/wiki.train.tokens.flatarticles
 
 wsjinput=.data/PTB/ptb.txt
 
@@ -104,6 +105,8 @@ elif [[ "$1" == "w2flm8" ]]; then
     $l_cluster --text $w2finput --c 8 --output_dir clusters/w2flm-8
 elif [[ "$1" == "w2flm4" ]]; then
     $l_cluster --text $w2finput --c 4 --output_dir clusters/w2flm-4
+elif [[ "$1" == "w2falm128" ]]; then
+    $l_cluster --text $w2fainput --c 128 --output_dir clusters/w2falm-128
 
 else
     echo "Improper argument"

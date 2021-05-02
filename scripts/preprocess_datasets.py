@@ -21,8 +21,13 @@ def process_file(infile, outfile, sep="<sep>"):
                     " ".join(words) for words in cur_line
                 ))
                 cur_line = [text]
+                #import pdb; pdb.set_trace()
             else:
                 cur_line.append(text)
+        # append last line
+        lines.append(f" {sep} ".join(
+            " ".join(words) for words in cur_line
+        ))
 
     with open(outfile, "w") as g:
         g.write("\n".join(lines))
@@ -39,6 +44,16 @@ def remove_newline(infile, outfile, sep="<eos>"):
 
 
 if __name__ == "__main__":
+    infiles = [
+        ".data/wikitext-2/wikitext-2/wiki.train.tokens",
+        ".data/wikitext-2/wikitext-2/wiki.valid.tokens",
+        ".data/wikitext-2/wikitext-2/wiki.test.tokens",
+    ]
+    outfiles = [f + ".flatarticles" for f in infiles]
+
+    for infile, outfile in zip(infiles, outfiles):
+        process_file(infile, outfile, sep="<eos>")
+
     infiles = [
         ".data/wikitext-2/wikitext-2/wiki.train.tokens",
         ".data/wikitext-2/wikitext-2/wiki.valid.tokens",
